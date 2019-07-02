@@ -14,7 +14,7 @@ const extractFiles = variables => {
           : value
 
         files.push({ file, name })
-        mapped[key] = name
+        mapped[key] = file.map(f => f.name)
       } else if (isObject(value)) {
         mapped[key] = walkTree(value, name)
       }

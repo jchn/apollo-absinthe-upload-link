@@ -19,7 +19,9 @@ export const createUploadMiddleware = ({ uri, headers, fetch, credentials }) =>
 
         formData.append('query', print(operation.query))
         formData.append('variables', JSON.stringify(variables))
-        files.forEach(({ name, file }) => formData.append(name, file))
+        files[0].file.forEach(file => {
+          formData.append(file.name, file)
+        })
 
         let options = {
           method: 'POST',
